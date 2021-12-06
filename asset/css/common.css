@@ -1,3 +1,9 @@
+/* 폰트 설정 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
 /* 상향가나 하향가일 경우 적용할 스타일 정의 */
 .up {
     color: red;
