@@ -1,0 +1,29 @@
+
+body {padding: 0;margin: 0;}
+html, body {width: 100%; height: 100%;}
+a {text-decoration: none;}
+
+#container {width: 2100px; position: relative; margin: auto;}
+#coin_info {
+    border: 1px solid #000;
+    width: 1200px; height: 150px;
+    position: absolute;
+    top: 30px;
+
+}
+
+#coin_chart{
+    border: 1px solid #000;
+    width: 1200px; height: 800px;
+    position: absolute;
+    top: 230px;
+
+}
+
+#coin_list {
+    border: 1px solid #000;
+    width: 800px; height: 1000px;
+    position: absolute;
+    top: 30px;
+    left: 1300px;
+}
