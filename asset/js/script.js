@@ -21,6 +21,11 @@ for (const btn of coinListItems) {
   })
 }
 
+// 3자리마다 콤마 찍는 함수
+function comma(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 // 차트 생성, 갱신 함수
 function drawChart(symbol) {
   var chartdata = [];
@@ -93,6 +98,7 @@ function getData() {
             // 등락률 갱신
             const rangePriceData = document.querySelectorAll('.' + currencySymbol[currencyIdx] + "-range-price");
             for (const i of rangePriceData) {
+              // 등락률 계산 후 innerHTML 삽입
               i.innerHTML = (((currencyData[currencySymbol[currencyIdx]].last - currencyData[currencySymbol[currencyIdx]].yesterday_last) / currencyData[currencySymbol[currencyIdx]].yesterday_last) * 100).toFixed(2);
               // 등락률이 어제보다 낮을경우 (등)
               if ((((currencyData[currencySymbol[currencyIdx]].last - currencyData[currencySymbol[currencyIdx]].yesterday_last) / currencyData[currencySymbol[currencyIdx]].yesterday_last) * 100) < 0) {
@@ -109,7 +115,7 @@ function getData() {
             // 거래량 갱신
             const allVolumeData = document.querySelectorAll('.' + currencySymbol[currencyIdx] + "-amount-volume");
             for (const i of allVolumeData) {
-              i.innerHTML = parseInt(currencyData[currencySymbol[currencyIdx]].volume);
+              i.innerHTML = comma(parseInt(currencyData[currencySymbol[currencyIdx]].volume));
             }
 
             // 상향가인지 하향가인지 검사해서 스타일 적용
@@ -131,16 +137,16 @@ function getData() {
 
             // 새 가격으로 innerHTML을 갱신
             for (const i of priceData) {
-              i.innerHTML = currencyData[currencySymbol[currencyIdx]].last;
+              i.innerHTML = comma(currencyData[currencySymbol[currencyIdx]].last);
             }
             // 상단 코인 정보창 고가 갱신
-            document.querySelector(".high-price").innerHTML = parseFloat(currencyData[currentViewCurrency].high).toFixed(3);
+            document.querySelector(".high-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].high).toFixed(3));
             // 상단 코인 정보창 저가 갱신
-            document.querySelector(".low-price").innerHTML = parseFloat(currencyData[currentViewCurrency].low).toFixed(3);
+            document.querySelector(".low-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].low).toFixed(3));
             // 상단 코인 정보창 전일가 갱신
-            document.querySelector(".previous-price").innerHTML = parseFloat(currencyData[currentViewCurrency].yesterday_last).toFixed(3);
+            document.querySelector(".previous-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].yesterday_last).toFixed(3));
             // 상단 코인 정보창 거래량 갱신
-            document.querySelector(".volume").innerHTML = parseFloat(currencyData[currentViewCurrency].volume).toFixed(3);
+            document.querySelector(".volume").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].volume).toFixed(3));
           }
         }
       }
@@ -149,8 +155,6 @@ function getData() {
   xhr.open(method, url);
   xhr.send();
 }
-// 페이지 첫 로드시 getData 함수 1회 최초 실행
-getData();
 // 페이지 첫 로드시 BTC로 차트 로드
 drawChart("BTC");
 // getData 함수 1초 주기로 반복 실행
