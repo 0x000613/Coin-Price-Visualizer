@@ -39,14 +39,18 @@ li{list-style: none;}
     display: inline-block;
 }
 #info-cell{
-    margin-left:-50px;
-    margin-top:-13px;
+  padding:10px 0 0 0;
 }
+
 #info-cell > li{
     float: left;
     list-style: none;
     padding-left:20px;
     color: #666;
+}
+
+#info-cell > li:first-child{
+  padding:0;
 }
 .high-price {
     color: red;
