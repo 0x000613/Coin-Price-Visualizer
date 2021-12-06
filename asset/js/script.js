@@ -2,6 +2,7 @@ const coinList = ["btc", "eth", "xrp", "mega", "klay", "luna", "vivi", "mnr", "r
 
 // 버튼 이벤트
 
+
 // 차트
 function draw3(symbol) {
   var chartdata = [];
@@ -77,6 +78,9 @@ function getData() {
             // 화폐 가격을 가리키는 요소를 priceData 변수에 할당
             const priceData = document.querySelector('.' + currencySymbol[currencyIdx] + "-price")
             const beforeData = priceData.innerHTML;
+
+            // 고가 변경
+            const topPriceData = document.querySelector('.' + currencySymbol[currencyIdx])
 
             // 상향가인지 하향가인지 검사해서 스타일 적용
             // 이전 가격이 갱신된 가격보다 작을 경우 (상향)
