@@ -20,9 +20,12 @@ function getData() {
                 for (let currencyIdx = 0; currencyIdx < currencySimbol.length; currencyIdx++) {
                     console.log(data[currencySimbol[currencyIdx]]);
 
-                    document.querySelector('#' + currencySimbol[currencyIdx] + "-price").innerHTML = data[currencySimbol[currencyIdx]].last;
+                    // 가져온 데이터를 html innerHTML 요소에 갱신
+                    document.querySelector('.' + currencySimbol[currencyIdx] + "-price").innerHTML = data[currencySimbol[currencyIdx]].last;
                 }
             }
+        } else {
+            console.log("error");
         }
     };
 
