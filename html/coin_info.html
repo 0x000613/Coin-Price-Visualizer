@@ -6,11 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="/css/coin.css">
+    <style>
+        #coin-info{
+            padding:10px;
+        }
+        #info-currency {
+            font-size:16px;
+        }
+        #info-btc-price{
+            font-size: 50px;
+            font-weight: bold;
+        }
+        #info-range{
+            display: inline-block;
+        }
+        #info-cell{
+            margin-left:-50px;
+            margin-top:-13px;
+        }
+        #info-cell > li{
+            float: left;
+            list-style: none;
+            padding-left:20px;
+            color: #666;
+        }
+        .high-price {
+            color: red;
+        }
+        .low-price {
+            color: blue;
+        }
+        
 
+
+    </style>
 </head>
 <body>
-    <div id="container">
-        <!-- 코인 정보창 -->
+     <!-- 코인 정보창 -->
      <div id="coin-info">
         <div class="coin-name">
             <h2 id="info-currency"class="currency">코인이름</h2>
@@ -26,35 +58,6 @@
             <li id="info-volume"><p>거래량 <span class="volume">0</span> BTC</p></li>
         </ul>
        
-    </div>
-
-        <!-- 코인 차트 -->
-        <div id="coin_chart">
-
-        </div>
-
-        <!-- 코인 리스트 -->
-        <div id="coin_list">
-            <div class="list_title">
-
-            </div>
-            <ul>
-                <li>
-                    <div class="list_name">
-                        <span></span>
-                    </div>
-                    <div class="list_price">
-                        <span></span>
-                    </div>
-                    <div class="list_fluctuation_rate">
-                        <span></span>
-                    </div>
-                    <div class="list_transaction_amount">
-                        <span></span>
-                    </div>
-                </li>
-            </ul>
-        </div>
     </div>
 </body>
 </html>

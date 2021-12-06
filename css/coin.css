@@ -30,3 +30,34 @@ a {text-decoration: none;}
     top: 30px;
     right: 1%;
 }
+
+/**정보창 css-------------------------------------------------------*/
+#coin-info{
+    padding:10px;
+}
+#info-currency {
+    font-size:16px;
+}
+#info-btc-price{
+    font-size: 50px;
+    font-weight: bold;
+}
+#info-range{
+    display: inline-block;
+}
+#info-cell{
+    margin-left:-50px;
+    margin-top:-13px;
+}
+#info-cell > li{
+    float: left;
+    list-style: none;
+    padding-left:20px;
+    color: #666;
+}
+.high-price {
+    color: red;
+}
+.low-price {
+    color: blue;
+}
