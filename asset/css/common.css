@@ -1,0 +1,16 @@
+/* 상향가나 하향가일 경우 적용할 스타일 정의 */
+.up {
+    color: red;
+}
+
+.up::before {
+    content: "▲";
+}
+
+.down {
+    color: blue;
+}
+
+.down::before {
+    content: "▼";
+}
