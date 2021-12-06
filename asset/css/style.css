@@ -3,6 +3,12 @@ body {padding: 0;margin: 0;}
 html, body {width: 100%; height: 100%;}
 a {text-decoration: none;}
 li{list-style: none;}
+::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
 
 #container {width: 100%; position: relative; margin: auto;}
 #coin-info {
@@ -14,14 +20,29 @@ li{list-style: none;}
 
 
 }
+/**차트 css-------------------------------------------------------*/
 
 #coin-chart-container {
-    border: 1px solid #000;
-    width: 70%; height: 450px;
-    position: absolute;
-    top: 230px;
-    left: 1%;
-
+  border: 1px solid #eee;
+  border-radius: 5px;
+  width: 70%; height: 450px;
+  position: absolute;
+  top: 230px;
+  left: 1%;
+  box-shadow: 2px 2px 5px #eee;
+  color:#2d2d2d;
+  box-sizing: border-box;
+}
+.chart-cell li{
+  float: left;
+  margin: 10px 16px 5px 1%;
+}
+.chart-cell li p,span{
+  float: left;
+}
+.chart-cell li p{
+  margin-right: 3px;
+  color: #9e9e9e;
 }
 
 /**정보창 css-------------------------------------------------------*/
@@ -201,3 +222,4 @@ li{list-style: none;}
     font-size:10px;
   }
   
+
