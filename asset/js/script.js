@@ -6,7 +6,7 @@ for (const btn of coinListItems) {
   btn.addEventListener("click", e => {
     console.log(e.currentTarget.classList[0]);
     document.querySelector("#info-currency-price").classList = e.currentTarget.classList[0] + "-price";
-    document.querySelector("#info-currency").innerHTML = e.currentTarget.classList[0].toUpperCase();
+    document.querySelector("#info-currency").innerHTML = parseInt(e.currentTarget.classList[0].toUpperCase());
     // 페이지 첫 로드시 BTC로 차트 로드
     draw3(e.currentTarget.classList[0].toUpperCase());
   })
@@ -82,12 +82,11 @@ function getData() {
 
             // 화폐 가격을 가리키는 요소를 priceData 변수에 할당
             const priceData = document.querySelectorAll('.' + currencySymbol[currencyIdx] + "-price")
-            const beforeData = priceData[0].innerHTML;
-
+            const beforeData = parseInt(priceData[0].innerHTML);
 
             // 상향가인지 하향가인지 검사해서 스타일 적용
             // 이전 가격이 갱신된 가격보다 작을 경우 (상향)
-            if (Number(beforeData) < Number(currencyData[currencySymbol[currencyIdx]].last)) {
+            if (parseInt(beforeData) < parseInt(currencyData[currencySymbol[currencyIdx]].last)) {
               for (const i of priceData) {
                 i.classList.remove("down");
                 i.classList.add("up");
@@ -106,6 +105,10 @@ function getData() {
             for (const i of priceData) {
               i.innerHTML = currencyData[currencySymbol[currencyIdx]].last;
             }
+
+            // 최고가 변경
+            const highPriceData = document.querySelector(".high-price")
+            highPriceData.innerHTML = parseInt(currencyData[currencySymbol[currencyIdx]].high);
           }
         }
       }
