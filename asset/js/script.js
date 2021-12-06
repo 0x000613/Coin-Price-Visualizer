@@ -1,3 +1,5 @@
+const coinList = ["btc", "eth", "xrp", "mega", "klay", "luna", "vivi", "mnr", "rush", "eos"]
+
 // 버튼 이벤트
 
 // 차트
