@@ -3,27 +3,30 @@ body {padding: 0;margin: 0;}
 html, body {width: 100%; height: 100%;}
 a {text-decoration: none;}
 
-#container {width: 2100px; position: relative; margin: auto;}
-#coin_info {
+#container {width: 100%; position: relative; margin: auto;}
+#coin-info {
     border: 1px solid #000;
-    width: 1200px; height: 150px;
+    width: 70%; height: 150px;
     position: absolute;
     top: 30px;
+    left: 1%;
+
 
 }
 
-#coin_chart{
+#coin-chart{
     border: 1px solid #000;
-    width: 1200px; height: 800px;
+    width: 70%; height: 800px;
     position: absolute;
     top: 230px;
+    left: 1%;
 
 }
 
-#coin_list {
+#coin-list {
     border: 1px solid #000;
-    width: 800px; height: 1000px;
+    width: 25%; height: 1000px;
     position: absolute;
     top: 30px;
-    left: 1300px;
+    right: 1%;
 }
