@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="/css/coin.css">
 
@@ -34,23 +35,37 @@
         </div>
 
         <!-- 코인 리스트 -->
-        <div id="coin_list">
-            <div class="list_title">
-
-            </div>
-            <ul>
+        <div id="coin-list">
+            <div class="list-title">
+                <form action="" method="get" class="clear">
+                    <span><i class="far fa-star"></i></span>
+                    <input type="search" name="q" placeholder="코인검색">
+                    <button type="button"><i class="fas fa-search"></i></button>
+                </form>
+                <ul>
+                    <li>Main 마켓</li>
+                    <li>Growth 마켓</li>
+                    <div>24시간 거래대금<p class="all-price">0백만</p></div>
+                </ul>
+                </ul>
+            </div>    
+            <ul class="list">
                 <li>
-                    <div class="list_name">
-                        <span></span>
+                    <div class="list-name">
+                        <h1>코인명</h1>
+                        <span>BTC<p>비트코인</p></span>
                     </div>
-                    <div class="list_price">
-                        <span></span>
+                    <div class="list-price">
+                        <h1>가격</h1>
+                        <span class="btc-price">0</span>
                     </div>
-                    <div class="list_fluctuation_rate">
-                        <span></span>
+                    <div class="list-fluctuation-rate">
+                        <h1>등락률</h1>
+                        <span class="btc-price">0</span>
                     </div>
-                    <div class="list_transaction_amount">
-                        <span></span>
+                    <div class="list-transaction-amount">
+                        <h1>거래대금<i class="fas fa-arrow-down"></i></h1>
+                        <span class="btc-price">0</span>
                     </div>
                 </li>
             </ul>
