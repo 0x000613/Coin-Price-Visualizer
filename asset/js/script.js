@@ -8,7 +8,7 @@ function draw3(symbol) {
           chartdata.push([item.date * 1000, item.open, item.high, item.low, item.close]);
       });
   }).done(function() {
-      Highcharts.stockChart('container', {
+      Highcharts.stockChart('coin-chart', {
           rangeSelector: {
               buttons: [{
                       type: 'hour',

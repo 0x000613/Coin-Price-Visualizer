@@ -15,9 +15,9 @@ li{list-style: none;}
 
 }
 
-#coin-chart{
+#coin-chart-container {
     border: 1px solid #000;
-    width: 70%; height: 800px;
+    width: 70%; height: 450px;
     position: absolute;
     top: 230px;
     left: 1%;
@@ -73,7 +73,7 @@ li{list-style: none;}
     border: 1px solid #eee;
     border-radius: 5px;
     width: 25%;
-    height: 1000px;
+    height: 650px;
     position: absolute;
     top: 30px;
     right: 1%;
