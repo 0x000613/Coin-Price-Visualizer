@@ -3,7 +3,12 @@ body {padding: 0;margin: 0;}
 html, body {width: 100%; height: 100%;}
 a {text-decoration: none;}
 li{list-style: none;}
-
+.clear::after {
+  content: '';
+  display: block;
+  float: none;
+  clear: both;
+}
 
 #container {width: 100%; position: relative; margin: auto;}
 #coin-info {
@@ -217,4 +222,39 @@ li{list-style: none;}
 
 .button {
   cursor: pointer;
+}
+
+/* 크립토허브 */
+#hub { 
+  border: 1px solid #000;
+  width: 98%;
+  height: 2000px;
+  position: relative;
+  top: 730px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #eee;
+  padding: 20px;
+  box-sizing: border-box;
+  color:#2d2d2d;
+  margin: auto;
+}
+
+.hub-title {
+  width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.news-gallary {
+  border: 1px solid #000;
+  width: 908px;
+  margin: auto;
+}
+
+.news-box {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #000;
+  float: left;
 }
