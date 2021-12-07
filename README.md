@@ -2,16 +2,27 @@
 
 코인원 API를 사용한 실시간 코인 정보 시각화 웹 프로그램 개발
 
-### 작업자
+### 작업자 및 파트 분담
 
-- 김우영
-- 이정원
-- 오예림
-- 유현승
+- 김우영 (자바스크립트 AJAX 통신, 차트 구현)
+- 이정원 (PPT, 프론트 상단, 프론트 우측)
+- 오예림 (프론트 우측)
+- 유현승 (프론트 레이아웃, 박스 디자인)
+
+### 라이브러리, API
+
+[자바스크립트 라이브러리 및 적용 기술]
+- Highcharts.js
+- jQuery
+- AJAX (JavaScript)
+
+[REST API]
+- Coinone 암호화폐 거래, 시세정보 REST API
+- Poloniex 암호화폐 차트 데이터 REST API
 
 ### Demo
 
-- https://xeroslab.github.io/EZEN-Frontend-TeamSemiPortfolio/
+- https://ezen-frontend-team-semi-portfolio.vercel.app/
 
 ### 코드 작성 가이드라인
 
