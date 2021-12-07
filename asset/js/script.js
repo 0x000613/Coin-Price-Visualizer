@@ -169,10 +169,10 @@ function getCoinData() {
 // 코인 뉴스 데이터를 가져오는 함수 (CryptoHub API)
 function getCoinNewsData() {
   const xhr = new XMLHttpRequest();
-  const method = "GET";
+  const method = "POST";
 
   // 링크에 숨겨진 data-deptno값을 백엔드에 전송함
-  const url = "https://openapi.naver.com/v1/search/news.json";
+  const url = "https://www.cryptohub.or.kr/api/v1/news";
 
   xhr.onreadystatechange = e => {
     const { target } = e;
@@ -184,9 +184,8 @@ function getCoinNewsData() {
     }
   };
   xhr.open(method, url);
-  xhr.setRequestHeader("Client-ID", "yrTi2DCZcPmtKxghaXA0");
-  xhr.setRequestHeader("Client-Secret", "hbRXuOu8MA");
-  xhr.send();
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+  xhr.send("token=$2y$10$LETJVJWyid8HnOFQBU3ZjOlSCiOA0997HBOsDZQEpKfxydJc.myJG&s_date=2021-01-01&e_date=2021-06-01&keyword=btc");
 }
 
 // 코인 뉴스 로드
