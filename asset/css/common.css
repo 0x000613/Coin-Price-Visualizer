@@ -5,6 +5,11 @@
 }
 
 /* 상향가나 하향가일 경우 적용할 스타일 정의 */
+.highlight {
+    animation-name: highlighting;
+    animation-duration: .5s;
+}
+
 .up {
     color: red;
 }
@@ -19,4 +24,15 @@
 
 .down::before {
     content: "▼";
+}
+
+/* 배경 하이라이팅 애니메이션 */
+@keyframes highlighting {
+    50% {
+        background-color: rgba(0, 0, 255, 0.068);
+    }
+
+    100% {
+        background-color: none;
+    }
 }
