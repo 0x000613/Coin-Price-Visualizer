@@ -11,11 +11,11 @@ for (const btn of coinListItems) {
     btn.addEventListener("click", e => {
         // 활성화 코인 변경
         currentViewCurrency = e.currentTarget.classList[0];
-        // 코인 리스트에서 코인 클릭시 즉시 ajax 데이터 갱신
+        // 코인 리스트에서 코인 클릭시 즉시 ajax 데이터 업데이트
         getCoinData();
-        // 상단 코인 정보창 코인 가격 갱신
+        // 상단 코인 정보창 코인 가격 업데이트
         document.querySelector("#info-currency-price").classList = e.currentTarget.classList[0] + "-price";
-        // 상단 코인 정보창 코인 심볼명 갱신
+        // 상단 코인 정보창 코인 심볼명 업데이트
         document.querySelector("#info-currency").innerHTML = e.currentTarget.classList[0].toUpperCase();
         // 클릭된 코인으로 차트 재생성
         drawChart(e.currentTarget.classList[0].toUpperCase());
@@ -27,7 +27,7 @@ function comma(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// Poloniex API로 누적 데이터를 가져오고 해당 누적 데이터로 차트 생성, 갱신하는 함수
+// Poloniex API로 누적 데이터를 가져오고 해당 누적 데이터로 차트 생성, 업데이트하는 함수
 function drawChart(symbol) {
     var chartdata = [];
     $.getJSON('https://poloniex.com/public?command=returnChartData&currencyPair=USDT_' + symbol + '&start=1455699200&end=9999999999&period=14400', function(data) {
@@ -96,10 +96,10 @@ function getCoinData() {
 
               // 심볼 하나씩 순회
               for (const symbol of currencySymbol) {
-                // 암호 화폐 가격 갱신 파트
+                // 암호 화폐 가격 업데이트 파트
                 // 선택된 심볼 암호화폐의 가격을 나타내는 HTML 요소를 순회
                 for (const currencyPriceElement of document.querySelectorAll('.' + symbol + "-price")) {
-                  // 해당 요소의 innerHTML을 API로 가져온 암호화폐 가격으로 갱신
+                  // 해당 요소의 innerHTML을 API로 가져온 암호화폐 가격으로 업데이트
                   // 이전 가격과 비교하여 가격이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
                   if (parseFloat(currencyPriceElement.innerHTML.replaceAll(',', '')) < currencyData[symbol].last) {
                     // down 클래스 제거, up 클래스 부여
@@ -122,10 +122,10 @@ function getCoinData() {
                   }
                 }
 
-                // 암호 화폐 등락률 갱신 파트
+                // 암호 화폐 등락률 업데이트 파트
                 // 선택된 심볼 암호화폐의 등락률을 나타내는 HTML 요소를 순회
                 for (const currencyRangePriceElement of document.querySelectorAll('.' + symbol + "-range-price")) {
-                  // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 갱신
+                  // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 업데이트
                   // 이전 등락률과 비교하여 등락률이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
                   if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) < currencyData[symbol].yesterday_last) {
                     // down 클래스 제거, up 클래스 부여
@@ -143,6 +143,37 @@ function getCoinData() {
                     currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
                   }
                 }
+
+                // 암호 화폐 거래량 업데이트 파트
+                // 선택된 심볼 암호화폐의 등락률을 나타내는 HTML 요소를 순회
+                for (const currencyRangePriceElement of document.querySelectorAll('.' + symbol + "-range-price")) {
+                  // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 업데이트
+                  // 이전 등락률과 비교하여 등락률이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
+                  if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) < currencyData[symbol].yesterday_last) {
+                    // down 클래스 제거, up 클래스 부여
+                    currencyRangePriceElement.classList.remove("down");
+                    currencyRangePriceElement.classList.add("up");
+                    // 등락률 업데이트
+                    currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
+                  }
+                  // 이전 등락률과 비교하여 등락률이 내렸으면
+                  else if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) > currencyData[symbol].yesterday_last) {
+                    // up 클래스 제거, down 클래스 부여
+                    currencyRangePriceElement.classList.remove("up");
+                    currencyRangePriceElement.classList.add("down");
+                    // 등락률 업데이트
+                    currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
+                  }
+                }
+
+                // 상단 코인 정보창 고가 갱신
+                document.querySelector(".high-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].high));
+                // 상단 코인 정보창 저가 갱신
+                document.querySelector(".low-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].low));
+                // 상단 코인 정보창 전일가 갱신
+                document.querySelector(".previous-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].yesterday_last));
+                // 상단 코인 정보창 거래량 갱신
+                document.querySelector(".volume").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].volume).toFixed(3)) + ' ' + currentViewCurrency.toUpperCase();
               }
             }
         }
