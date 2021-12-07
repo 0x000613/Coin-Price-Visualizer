@@ -27,7 +27,7 @@ function comma(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-// 차트 생성, 갱신 함수
+// Poloniex API로 누적 데이터를 가져오고 해당 누적 데이터로 차트 생성, 갱신하는 함수
 function drawChart(symbol) {
   var chartdata = [];
   $.getJSON('https://poloniex.com/public?command=returnChartData&currencyPair=USDT_'+ symbol +'&start=1455699200&end=9999999999&period=14400', function(data) {
@@ -74,7 +74,7 @@ function drawChart(symbol) {
   });
 }
 
-// 코인 정보 데이터를 가져오는 함수 (Coinone API, Poloniex API)
+// 코인 정보 데이터를 가져오는 함수 (Coinone API)
 function getCoinData() {
   const xhr = new XMLHttpRequest();
   const method = "GET";
