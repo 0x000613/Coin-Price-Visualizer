@@ -58,6 +58,10 @@ li {
   box-sizing: border-box;
 }
 
+.news-contents {
+  overflow: hidden;
+}
+
 .news-date {
   width: 70%;
   margin: 10px 15%;
