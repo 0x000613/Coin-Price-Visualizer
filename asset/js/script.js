@@ -11,7 +11,7 @@ for (const btn of coinListItems) {
     // 활성화 코인 변경
     currentViewCurrency = e.currentTarget.classList[0];
     // 코인 리스트에서 코인 클릭시 즉시 ajax 데이터 갱신
-    getData();
+    getCoinData();
     // 상단 코인 정보창 코인 가격 갱신
     document.querySelector("#info-currency-price").classList = e.currentTarget.classList[0] + "-price";
     // 상단 코인 정보창 코인 심볼명 갱신
@@ -21,9 +21,19 @@ for (const btn of coinListItems) {
   })
 }
 
-// 3자리마다 콤마 찍는 함수
+// 3자리마다 콤마 찍는 함수 정의
 function comma(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// 오늘 날짜를 (YYYY-MM-DD) 포맷으로 반환하는 함수 정의
+function today() {
+  today = new Date();
+  const date = [];
+  date.push(today.getFullYear());
+  date.push((String(today.getMonth() + 1).length < 2 ? '0' + String(today.getMonth() + 1) : today.getMonth() + 1));
+  date.push((String(today.getDate()).length < 2) ? '0' + String(today.getDate()) : today.getDate());
+  return date.join('-');
 }
 
 // 차트 생성, 갱신 함수
@@ -74,7 +84,7 @@ function drawChart(symbol) {
 }
 
 // 코인 정보 데이터를 가져오는 함수 (Coinone API, Poloniex API)
-function getData() {
+function getCoinData() {
   const xhr = new XMLHttpRequest();
   const method = "GET";
 
@@ -155,7 +165,34 @@ function getData() {
   xhr.open(method, url);
   xhr.send();
 }
+
+// 코인 뉴스 데이터를 가져오는 함수 (CryptoHub API)
+function getCoinNewsData() {
+  const xhr = new XMLHttpRequest();
+  const method = "GET";
+
+  // 링크에 숨겨진 data-deptno값을 백엔드에 전송함
+  const url = "https://openapi.naver.com/v1/search/news.json";
+
+  xhr.onreadystatechange = e => {
+    const { target } = e;
+    if (target.readyState === XMLHttpRequest.DONE) {
+        if (target.status === 200) {
+          let currencyNewsData = JSON.parse(target.response);
+          console.log(currencyNewsData);
+        }
+    }
+  };
+  xhr.open(method, url);
+  xhr.setRequestHeader("Client-ID", "yrTi2DCZcPmtKxghaXA0");
+  xhr.setRequestHeader("Client-Secret", "hbRXuOu8MA");
+  xhr.send();
+}
+
+// 코인 뉴스 로드
+getCoinNewsData();
+
 // 페이지 첫 로드시 BTC로 차트 로드
 drawChart("BTC");
 // getData 함수 1초 주기로 반복 실행
-setInterval(getData, 1000);
+setInterval(getCoinData, 1000);
