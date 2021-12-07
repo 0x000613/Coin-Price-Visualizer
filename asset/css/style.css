@@ -271,40 +271,6 @@ li {
   .list {
     white-space: nowrap;
   }
-  /* 크립토허브 */
-  #hub { 
-    border: 1px solid #000;
-    width: 98%;
-    height: 2000px;
-    position: relative;
-    top: 730px;
-    border: 1px solid #eee;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px #eee;
-    padding: 20px;
-    box-sizing: border-box;
-    color:#2d2d2d;
-    margin: auto;
-  }
-
-  .hub-title {
-    width: 500px;
-    margin: auto;
-    text-align: center;
-  }
-
-  .news-gallary {
-    border: 1px solid #000;
-    width: 908px;
-    margin: auto;
-  }
-
-  .news-box {
-    width: 300px;
-    height: 300px;
-    border: 1px solid #000;
-    float: left;
-  }
 }
 
 /* 모바일, 태블릿 */
@@ -527,40 +493,6 @@ li {
   
   .list-name p {
     word-break : nowrap;
-  }
-  /* 크립토허브 */
-  #hub { 
-    border: 1px solid #000;
-    width: 98%;
-    height: 2000px;
-    position: relative;
-    top: 1500px;
-    border: 1px solid #eee;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px #eee;
-    padding: 20px;
-    box-sizing: border-box;
-    color:#2d2d2d;
-    margin: auto;
-  }
-  
-  .hub-title {
-    width: 500px;
-    margin: auto;
-    text-align: center;
-  }
-  
-  .news-gallary {
-    border: 1px solid #000;
-    width: 908px;
-    margin: auto;
-  }
-  
-  .news-box {
-    width: 300px;
-    height: 300px;
-    border: 1px solid #000;
-    float: left;
   }
 }
 
@@ -809,40 +741,5 @@ li {
   .list {
     white-space: nowrap;
   }
-  /* 크립토허브 */
-  #hub { 
-    border: 1px solid #000;
-    width: 98%;
-    height: 2000px;
-    position: relative;
-    top: 730px;
-    border: 1px solid #eee;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px #eee;
-    padding: 20px;
-    box-sizing: border-box;
-    color:#2d2d2d;
-    margin: auto;
-  }
-  
-  .hub-title {
-    width: 500px;
-    margin: auto;
-    text-align: center;
-  }
-  
-  .news-gallary {
-    border: 1px solid #000;
-    width: 908px;
-    margin: auto;
-  }
-  
-  .news-box {
-    width: 300px;
-    height: 300px;
-    border: 1px solid #000;
-    float: left;
-  }
-  
 }
 
