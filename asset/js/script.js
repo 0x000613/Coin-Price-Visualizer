@@ -73,7 +73,7 @@ function drawChart(symbol) {
   });
 }
 
-// 데이터를 가져오는 함수
+// 코인 정보 데이터를 가져오는 함수 (Coinone API, Poloniex API)
 function getData() {
   const xhr = new XMLHttpRequest();
   const method = "GET";
