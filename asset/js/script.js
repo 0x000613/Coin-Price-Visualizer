@@ -2,6 +2,7 @@
 var currentViewCurrency = "btc";
 
 // 코인 심볼 배열
+// 플로닉스 차트에서 화폐 누적 데이터를 가져올때 사용함
 const currencySymbol = ["btc", "eth", "xrp", "doge", "etc", "bch", "ltc", "btt", "trx", "eos", "qtum"]
 
 // 버튼 이벤트
@@ -24,16 +25,6 @@ for (const btn of coinListItems) {
 // 3자리마다 콤마 찍는 함수 정의
 function comma(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-// 오늘 날짜를 (YYYY-MM-DD) 포맷으로 반환하는 함수 정의
-function today() {
-  today = new Date();
-  const date = [];
-  date.push(today.getFullYear());
-  date.push((String(today.getMonth() + 1).length < 2 ? '0' + String(today.getMonth() + 1) : today.getMonth() + 1));
-  date.push((String(today.getDate()).length < 2) ? '0' + String(today.getDate()) : today.getDate());
-  return date.join('-');
 }
 
 // 차트 생성, 갱신 함수
