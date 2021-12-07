@@ -48,6 +48,67 @@ li {
 
 }
 
+#news {
+  width: 98%;
+  border: 1px solid #eee;
+  box-shadow: 2px 2px 5px #eee;
+  position: relative;
+  left: 1%;
+  top: 700px;
+  color: #2d2d2d;
+  box-sizing: border-box;
+}
+
+.news-date {
+  width: 70%;
+  margin: 10px 15%;
+  font-size: 12px;
+  background: #f3f4f8;
+  border-radius: 10px;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 20px;
+}
+
+.news-box {
+  width: 70%;
+  margin: auto;
+  padding: 24px 0 27px 0;
+  position: relative;
+}
+
+.news-time {
+  font-size: 12px;
+  text-align: center;
+  width: 46px;
+  height: 18px;
+  background: #f3f4f8;
+  color: #667;
+  display: inline-block;
+  position: absolute;
+  left: -60px;
+}
+
+.news-title {
+  font-size:16px;
+  margin-bottom: 8px;
+}
+
+.news-text {
+  font-size:14px;
+  line-height:24px;
+  margin-bottom: 20px;
+}
+
+.news-img {
+  width: 560px;
+  background: #f8f8f8;
+}
+.news-img  img{
+  width: 460px;
+  display: block;
+  margin: auto;
+}
 /* 컴퓨터 */
 @media screen and (min-width:1281px) {
 
@@ -494,6 +555,70 @@ li {
   .list-name p {
     word-break : nowrap;
   }
+
+  /* 뉴스 */
+  #news {
+    width: 98%;
+    border: 1px solid #eee;
+    box-shadow: 2px 2px 5px #eee;
+    position: relative;
+    left: 1%;
+    top: 1380px;
+    color: #2d2d2d;
+    box-sizing: border-box;
+  }
+  
+  .news-date {
+    width: 70%;
+    margin: 10px 15%;
+    font-size: 12px;
+    background: #f3f4f8;
+    border-radius: 10px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+  }
+  
+  .news-box {
+    width: 70%;
+    margin: auto;
+    padding: 24px 0 27px 0;
+    position: relative;
+  }
+  
+  .news-time {
+    font-size: 12px;
+    text-align: center;
+    width: 46px;
+    height: 18px;
+    background: #f3f4f8;
+    color: #667;
+    display: inline-block;
+    position: absolute;
+    left: -60px;
+  }
+  
+  .news-title {
+    font-size:16px;
+    margin-bottom: 8px;
+  }
+  
+  .news-text {
+    font-size:14px;
+    line-height:24px;
+    margin-bottom: 20px;
+  }
+  
+  .news-img {
+    width: 560px;
+    background: #f8f8f8;
+  }
+  .news-img  img{
+    width: 460px;
+    display: block;
+    margin: auto;
+  }
+  
 }
 
 /* 태블릿 */
