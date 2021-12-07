@@ -48,252 +48,801 @@ li {
 
 }
 
-/**차트 css-------------------------------------------------------*/
+/* 컴퓨터 */
+@media screen and (min-width:1281px) {
 
-#coin-chart-container {
-  border: 1px solid #eee;
-  border-radius: 5px;
-  width: 70%;
-  height: 450px;
-  position: absolute;
-  top: 230px;
-  left: 1%;
-  box-shadow: 2px 2px 5px #eee;
-  color: #2d2d2d;
-  box-sizing: border-box;
+  /**차트 css-------------------------------------------------------*/
+
+  #coin-chart-container {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    width: 70%;
+    height: 450px;
+    position: absolute;
+    top: 230px;
+    left: 1%;
+    box-shadow: 2px 2px 5px #eee;
+    color: #2d2d2d;
+    box-sizing: border-box;
+  }
+
+  #coin-chart-container {
+    cursor: crosshair;
+  }
+
+  /**정보창 css-------------------------------------------------------*/
+  #coin-info {
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;
+    right: 1%;
+    box-shadow: 2px 2px 5px #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #2d2d2d;
+  }
+
+  #info-currency {
+    font-size: 16px;
+  }
+
+  #info-currency-price {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  #info-range {
+    display: inline-block;
+  }
+
+  #info-cell {
+    padding: 10px 0 0 0;
+  }
+
+  #info-cell>li {
+    float: left;
+    list-style: none;
+    padding-left: 20px;
+    color: #666;
+  }
+
+  #info-cell>li:first-child {
+    padding: 0;
+  }
+
+  .high-price {
+    color: red;
+  }
+
+  .low-price {
+    color: blue;
+  }
+
+  .coin-name {
+    cursor: pointer;
+  }
+
+  /**리스트 css-------------------------------------------------------*/
+  #coin-list {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    width: 25%;
+    height: 650px;
+    position: absolute;
+    top: 30px;
+    right: 1%;
+    box-shadow: 2px 2px 5px #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #2d2d2d;
+    overflow: auto;
+  }
+
+  #coin-list .list-title {
+    margin: 15px 0 0 0;
+    width: 100%;
+  }
+
+  #coin-list .list-title span {
+    width: 8%;
+    float: left;
+    padding: 5px 0 0 0;
+    color: #f8c919;
+    box-sizing: border-box;
+  }
+
+  #coin-list .list-title input[type="search"] {
+    background: #f8f8f8;
+    border: none;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    width: 70%;
+    float: left;
+    box-sizing: border-box;
+  }
+
+  #coin-list .list-title button[type="button"] {
+    width: 20%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    text-align: right;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    height: 35px;
+    background: #f8f8f8;
+  }
+
+  #coin-list .list-title ul {
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    margin: 20px 0;
+  }
+
+  #coin-list .list-title li {
+    float: left;
+    font-size: 12px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 8px 10px;
+    margin: 0 10px 0 0;
+    color: #b0b0b0;
+  }
+
+  #coin-list .list-title li:hover {
+    background: #f8f8f8;
+  }
+
+  #coin-list .list-title div {
+    float: right;
+    font-size: 12px;
+    color: #b0b0b0;
+  }
+
+  #coin-list .list-title p {
+    font-weight: 900;
+    font-size: 14px;
+    color: #9e9e9e;
+  }
+
+  #coin-list .list {
+    border-top: 1px solid #eee;
+    padding: 10px 0 0 0;
+  }
+
+
+  #coin-list .list li div {
+    float: left;
+    width: 25%;
+  }
+
+  #coin-list .list h1 {
+    font-size: 14px;
+    color: #a6a6a6;
+    padding: 0 0 10px 0;
+  }
+
+  #coin-list .list li span {
+    display: block;
+    line-height: 38px;
+    font-size: 12px;
+  }
+
+  #coin-list .list li .list-name span {
+    font-weight: 900;
+    font-size: 15px;
+    color: #424242;
+    line-height: 18px;
+  }
+
+  #coin-list .list li .list-name span p {
+    font-size: 12px;
+    color: #c8c8c8;
+  }
+
+  #coin-list .list li .list-price,
+  .list-fluctuation-rate,
+  .list-transaction-amount {
+    text-align: right;
+  }
+
+  #coin-list .list li .list-transaction-amount h1 {
+    color: #2d2d2d;
+  }
+
+  #coin-list .list li .list-transaction-amount i {
+    padding: 0 0 0 1px;
+    font-size: 10px;
+  }
+
+  .list {
+    cursor: pointer;
+  }
+
+  .button {
+    cursor: pointer;
+  }
+  .list-name p {
+    white-space: nowrap;
+  }
+  .list {
+    white-space: nowrap;
+  }
+  /* 크립토허브 */
+  #hub { 
+    border: 1px solid #000;
+    width: 98%;
+    height: 2000px;
+    position: relative;
+    top: 730px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    color:#2d2d2d;
+    margin: auto;
+  }
+
+  .hub-title {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .news-gallary {
+    border: 1px solid #000;
+    width: 908px;
+    margin: auto;
+  }
+
+  .news-box {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000;
+    float: left;
+  }
 }
 
-#coin-chart-container {
-  cursor: crosshair;
+/* 모바일, 태블릿 */
+@media screen and (max-width:768px) {
+
+  #coin-chart-container {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    width: 98%;
+    height: 450px;
+    position: absolute;
+    top: 230px;
+    left: 1%;
+    box-shadow: 2px 2px 5px #eee;
+    color: #2d2d2d;
+    box-sizing: border-box;
+  }
+  
+  #coin-chart-container {
+    cursor: crosshair;
+  }
+  
+  /**정보창 css-------------------------------------------------------*/
+  #coin-info {
+    width: 98%;
+    height: 150px;  
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;
+    right: 1%;
+    box-shadow: 2px 2px 5px #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #2d2d2d;
+  }
+  
+  #info-currency {
+    font-size: 16px;
+  }
+  
+  #info-currency-price {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  #info-range {
+    display: inline-block;
+  }
+  
+  #info-cell {
+    padding: 10px 0 0 0;
+  }
+  
+  #info-cell>li {
+    float: left;
+    list-style: none;
+    padding-left: 20px;
+    color: #666;
+  }
+  
+  #info-cell>li:first-child {
+    padding: 0;
+  }
+  
+  .high-price {
+    color: red;
+  }
+  
+  .low-price {
+    color: blue;
+  }
+  
+  .coin-name {
+    cursor: pointer;
+  }
+  
+  /**리스트 css-------------------------------------------------------*/
+  #coin-list {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    width: 98%;
+    height: 650px;
+    position: absolute;
+    top: 700px;
+    left: 1%;
+    box-shadow: 2px 2px 5px #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #2d2d2d;
+    overflow: auto;
+  }
+  
+  #coin-list .list-title {
+    margin: 15px 0 0 0;
+    width: 100%;
+  }
+  
+  #coin-list .list-title span {
+    width: 8%;
+    float: left;
+    padding: 5px 0 0 0;
+    color: #f8c919;
+    box-sizing: border-box;
+  }
+  
+  #coin-list .list-title input[type="search"] {
+    background: #f8f8f8;
+    border: none;
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    width: 70%;
+    float: left;
+    box-sizing: border-box;
+  }
+  
+  #coin-list .list-title button[type="button"] {
+    width: 20%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    text-align: right;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    height: 35px;
+    background: #f8f8f8;
+  }
+  
+  #coin-list .list-title ul {
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    margin: 20px 0;
+  }
+  
+  #coin-list .list-title li {
+    float: left;
+    font-size: 12px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 8px 10px;
+    margin: 0 10px 0 0;
+    color: #b0b0b0;
+  }
+  
+  #coin-list .list-title li:hover {
+    background: #f8f8f8;
+  }
+  
+  #coin-list .list-title div {
+    float: right;
+    font-size: 12px;
+    color: #b0b0b0;
+  }
+  
+  #coin-list .list-title p {
+    font-weight: 900;
+    font-size: 14px;
+    color: #9e9e9e;
+  }
+  
+  #coin-list .list {
+    border-top: 1px solid #eee;
+    padding: 10px 0 0 0;
+  }
+  
+  
+  #coin-list .list li div {
+    float: left;
+    width: 25%;
+  }
+  
+  #coin-list .list h1 {
+    font-size: 14px;
+    color: #a6a6a6;
+    padding: 0 0 10px 0;
+  }
+  
+  #coin-list .list li span {
+    display: block;
+    line-height: 38px;
+    font-size: 12px;
+  }
+  
+  #coin-list .list li .list-name span {
+    font-weight: 900;
+    font-size: 15px;
+    color: #424242;
+    line-height: 18px;
+  }
+  
+  #coin-list .list li .list-name span p {
+    font-size: 12px;
+    color: #c8c8c8;
+  }
+  
+  #coin-list .list li .list-price,
+  .list-fluctuation-rate,
+  .list-transaction-amount {
+    text-align: right;
+  }
+  
+  #coin-list .list li .list-transaction-amount h1 {
+    color: #2d2d2d;
+  }
+  
+  #coin-list .list li .list-transaction-amount i {
+    padding: 0 0 0 1px;
+    font-size: 10px;
+  }
+  
+  .list {
+    cursor: pointer;
+  }
+  
+  .button {
+    cursor: pointer;
+  }
+  
+  .list-name p {
+    word-break : nowrap;
+  }
+  /* 크립토허브 */
+  #hub { 
+    border: 1px solid #000;
+    width: 98%;
+    height: 2000px;
+    position: relative;
+    top: 1500px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    color:#2d2d2d;
+    margin: auto;
+  }
+  
+  .hub-title {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .news-gallary {
+    border: 1px solid #000;
+    width: 908px;
+    margin: auto;
+  }
+  
+  .news-box {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000;
+    float: left;
+  }
 }
 
-/**정보창 css-------------------------------------------------------*/
-#coin-info {
-  padding: 10px;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  position: absolute;
-  top: 30px;
-  right: 1%;
-  box-shadow: 2px 2px 5px #eee;
-  padding: 20px;
-  box-sizing: border-box;
-  color: #2d2d2d;
+/* 태블릿 */
+@media screen and (min-width:769px) and (max-width:1280px) {
+  #coin-info {
+    border: 1px solid #000;
+    width: 70%;
+    height: 150px;
+    position: absolute;
+    top: 30px;
+    left: 1%;
+  
+  
+  }
+  
+  /**차트 css-------------------------------------------------------*/
+  
+  #coin-chart-container {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    width: 70%;
+    height: 450px;
+    position: absolute;
+    top: 230px;
+    left: 1%;
+    box-shadow: 2px 2px 5px #eee;
+    color: #2d2d2d;
+    box-sizing: border-box;
+  }
+  
+  #coin-chart-container {
+    cursor: crosshair;
+  }
+  
+  /**정보창 css-------------------------------------------------------*/
+  #coin-info {
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;
+    right: 1%;
+    box-shadow: 2px 2px 5px #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #2d2d2d;
+  }
+  
+  #info-currency {
+    font-size: 16px;
+  }
+  
+  #info-currency-price {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  #info-range {
+    display: inline-block;
+  }
+  
+  #info-cell {
+    padding: 10px 0 0 0;
+  }
+  
+  #info-cell>li {
+    float: left;
+    list-style: none;
+    padding-left: 20px;
+    color: #666;
+  }
+  
+  #info-cell>li:first-child {
+    padding: 0;
+  }
+  
+  .high-price {
+    color: red;
+  }
+  
+  .low-price {
+    color: blue;
+  }
+  
+  .coin-name {
+    cursor: pointer;
+  }
+  
+  /**리스트 css-------------------------------------------------------*/
+  #coin-list {
+    border: 1px solid #eee;
+    border-radius: 5px;
+    width: 25%;
+    height: 650px;
+    position: absolute;
+    top: 30px;
+    right: 1%;
+    box-shadow: 2px 2px 5px #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #2d2d2d;
+    overflow: auto;
+  }
+  
+  #coin-list .list-title {
+    margin: 15px 0 0 0;
+    width: 100%;
+  }
+  
+  #coin-list .list-title span {
+    width: 8%;
+    float: left;
+    padding: 5px 0 0 0;
+    color: #f8c919;
+    box-sizing: border-box;
+  }
+  
+  #coin-list .list-title input[type="search"] {
+    background: #f8f8f8;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    float: left;
+    box-sizing: border-box;
+    font-size: 12px;
+  }
+  
+  #coin-list .list-title button[type="button"] {
+    width: 20%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    text-align: right;
+    border-radius: 0 10px 10px 0;
+    border: none;
+    height: 35px;
+    background: #f8f8f8;
+    font-size: 12px;
+    position: absolute;
+    right: 10%;
+  }
+  
+  #coin-list .list-title ul {
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    height: 35px;
+    margin: 20px 0;
+  }
+  
+  #coin-list .list-title li {
+    float: left;
+    font-size: 12px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 8px 8px;
+    color: #b0b0b0;
+  }
+  .list-title li:first-child {
+    position: absolute;
+    left: 30px;
+  }
+  .list-title li:nth-child(2) {
+    position: absolute;
+    left: 110px;
+  }
+
+  #coin-list .list-title li:hover {
+    background: #f8f8f8;
+  }
+  
+  #coin-list .list-title div {
+    float: right;
+    font-size: 12px;
+    color: #b0b0b0;
+  }
+  
+  #coin-list .list-title p {
+    font-weight: 900;
+    font-size: 14px;
+    color: #9e9e9e;
+  }
+  
+  #coin-list .list {
+    border-top: 1px solid #eee;
+    padding: 10px 0 0 0;
+  }
+  
+  
+  #coin-list .list li div {
+    float: left;
+    width: 25%;
+  }
+  
+  #coin-list .list h1 {
+    font-size: 13px;
+    color: #a6a6a6;
+    padding: 0 0 10px 0;
+  }
+  
+  #coin-list .list li span {
+    display: block;
+    line-height: 38px;
+    font-size: 12px;
+  }
+  
+  #coin-list .list li .list-name span {
+    font-weight: 900;
+    font-size: 15px;
+    color: #424242;
+    line-height: 18px;
+  }
+  
+  #coin-list .list li .list-name span p {
+    font-size: 10px;
+    color: #c8c8c8;
+  }
+  
+  #coin-list .list li .list-price,
+  .list-fluctuation-rate,
+  .list-transaction-amount {
+    text-align: right;
+  }
+  
+  #coin-list .list li .list-transaction-amount h1 {
+    color: #2d2d2d;
+  }
+  
+  #coin-list .list li .list-transaction-amount i {
+    padding: 0 0 0 1px;
+    font-size: 10px;
+  }
+  
+  .list {
+    cursor: pointer;
+  }
+  
+  .button {
+    cursor: pointer;
+  }
+  .list-name p {
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  .list {
+    white-space: nowrap;
+  }
+  /* 크립토허브 */
+  #hub { 
+    border: 1px solid #000;
+    width: 98%;
+    height: 2000px;
+    position: relative;
+    top: 730px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    color:#2d2d2d;
+    margin: auto;
+  }
+  
+  .hub-title {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .news-gallary {
+    border: 1px solid #000;
+    width: 908px;
+    margin: auto;
+  }
+  
+  .news-box {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #000;
+    float: left;
+  }
+  
 }
 
-#info-currency {
-  font-size: 16px;
-}
-
-#info-currency-price {
-  font-size: 30px;
-  font-weight: bold;
-}
-
-#info-range {
-  display: inline-block;
-}
-
-#info-cell {
-  padding: 10px 0 0 0;
-}
-
-#info-cell>li {
-  float: left;
-  list-style: none;
-  padding-left: 20px;
-  color: #666;
-}
-
-#info-cell>li:first-child {
-  padding: 0;
-}
-
-.high-price {
-  color: red;
-}
-
-.low-price {
-  color: blue;
-}
-
-.coin-name {
-  cursor: pointer;
-}
-
-/**리스트 css-------------------------------------------------------*/
-#coin-list {
-  border: 1px solid #eee;
-  border-radius: 5px;
-  width: 25%;
-  height: 650px;
-  position: absolute;
-  top: 30px;
-  right: 1%;
-  box-shadow: 2px 2px 5px #eee;
-  padding: 20px;
-  box-sizing: border-box;
-  color: #2d2d2d;
-  overflow: auto;
-}
-
-#coin-list .list-title {
-  margin: 15px 0 0 0;
-  width: 100%;
-}
-
-#coin-list .list-title span {
-  width: 8%;
-  float: left;
-  padding: 5px 0 0 0;
-  color: #f8c919;
-  box-sizing: border-box;
-}
-
-#coin-list .list-title input[type="search"] {
-  background: #f8f8f8;
-  border: none;
-  padding: 10px;
-  border-radius: 10px 0 0 10px;
-  width: 70%;
-  float: left;
-  box-sizing: border-box;
-}
-
-#coin-list .list-title button[type="button"] {
-  width: 20%;
-  box-sizing: border-box;
-  padding: 10px 20px;
-  text-align: right;
-  border-radius: 0 10px 10px 0;
-  border: none;
-  height: 35px;
-  background: #f8f8f8;
-}
-
-#coin-list .list-title ul {
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-  height: 35px;
-  margin: 20px 0;
-}
-
-#coin-list .list-title li {
-  float: left;
-  font-size: 12px;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  padding: 8px 10px;
-  margin: 0 10px 0 0;
-  color: #b0b0b0;
-}
-
-#coin-list .list-title li:hover {
-  background: #f8f8f8;
-}
-
-#coin-list .list-title div {
-  float: right;
-  font-size: 12px;
-  color: #b0b0b0;
-}
-
-#coin-list .list-title p {
-  font-weight: 900;
-  font-size: 14px;
-  color: #9e9e9e;
-}
-
-#coin-list .list {
-  border-top: 1px solid #eee;
-  padding: 10px 0 0 0;
-}
-
-
-#coin-list .list li div {
-  float: left;
-  width: 25%;
-}
-
-#coin-list .list h1 {
-  font-size: 14px;
-  color: #a6a6a6;
-  padding: 0 0 10px 0;
-}
-
-#coin-list .list li span {
-  display: block;
-  line-height: 38px;
-  font-size: 12px;
-}
-
-#coin-list .list li .list-name span {
-  font-weight: 900;
-  font-size: 15px;
-  color: #424242;
-  line-height: 18px;
-}
-
-#coin-list .list li .list-name span p {
-  font-size: 12px;
-  color: #c8c8c8;
-}
-
-#coin-list .list li .list-price,
-.list-fluctuation-rate,
-.list-transaction-amount {
-  text-align: right;
-}
-
-#coin-list .list li .list-transaction-amount h1 {
-  color: #2d2d2d;
-}
-
-#coin-list .list li .list-transaction-amount i {
-  padding: 0 0 0 1px;
-  font-size: 10px;
-}
-
-.list {
-  cursor: pointer;
-}
-
-.button {
-  cursor: pointer;
-}
-
-/* 크립토허브 */
-#hub { 
-  border: 1px solid #000;
-  width: 98%;
-  height: 2000px;
-  position: relative;
-  top: 730px;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px #eee;
-  padding: 20px;
-  box-sizing: border-box;
-  color:#2d2d2d;
-  margin: auto;
-}
-
-.hub-title {
-  width: 500px;
-  margin: auto;
-  text-align: center;
-}
-
-.news-gallary {
-  border: 1px solid #000;
-  width: 908px;
-  margin: auto;
-}
-
-.news-box {
-  width: 300px;
-  height: 300px;
-  border: 1px solid #000;
-  float: left;
-}
