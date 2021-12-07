@@ -17,7 +17,6 @@ li{list-style: none;}
 html,
 body {
   width: 100%;
-  height: 200vh;
   padding: 0;
   margin: 0;
 }
@@ -49,12 +48,12 @@ li {
 }
 
 #news {
-  width: 98%;
+  width: 70%;
   border: 1px solid #eee;
   box-shadow: 2px 2px 5px #eee;
   position: relative;
   left: 1%;
-  top: 700px;
+  top: 730px;
   color: #2d2d2d;
   box-sizing: border-box;
 }
@@ -101,13 +100,18 @@ li {
 }
 
 .news-img {
-  width: 560px;
+  max-width: 560px;
   background: #f8f8f8;
 }
 .news-img  img{
-  width: 460px;
+  max-width: 460px;
   display: block;
   margin: auto;
+}
+
+#news h1 {
+  text-align: center;
+  margin: 40px 0;
 }
 /* 컴퓨터 */
 @media screen and (min-width:1281px) {
@@ -191,7 +195,7 @@ li {
     border-radius: 5px;
     width: 25%;
     height: 650px;
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 1%;
     box-shadow: 2px 2px 5px #eee;
@@ -621,7 +625,7 @@ li {
   
 }
 
-/* 태블릿 */
+/* 노트북 */
 @media screen and (min-width:769px) and (max-width:1280px) {
   #coin-info {
     border: 1px solid #000;
@@ -713,7 +717,7 @@ li {
     border-radius: 5px;
     width: 25%;
     height: 650px;
-    position: absolute;
+    position: fixed;
     top: 30px;
     right: 1%;
     box-shadow: 2px 2px 5px #eee;
