@@ -3,9 +3,10 @@ var currentViewCurrency = "btc";
 
 // 코인 심볼 배열
 // 플로닉스 차트에서 화폐 누적 데이터를 가져올때 사용함
-const currencySymbol = ["btc", "eth", "xrp", "doge", "etc", "bch", "ltc", "btt", "trx", "eos", "qtum"]
+const currencySymbol = ["btc", "eth", "xrp", "doge", "etc", "bch", "ltc", "btt", "trx", "eos", "qtum", "dia", "bnt", "mir", "uma", "avax", "aave", "bal", "uni", "neo", "stake", "dot", "ftt"]
 
-// 버튼 이벤트
+// 버튼 이벤트 처리 로직
+// 좌측 코인 리스트창의 코인 리스트 객체들을 가져와서 선언함
 const coinListItems = document.querySelectorAll(".coin-list-item");
 for (const btn of coinListItems) {
     btn.addEventListener("click", e => {
@@ -21,6 +22,38 @@ for (const btn of coinListItems) {
         drawChart(e.currentTarget.classList[0].toUpperCase());
     })
 }
+
+// 검색창 검색 이벤트 처리 함수
+// jQuery를 이용하여 input 탭의 값이 변경될때마다 실행되도록함
+$("#currency-search").on("propertychange change keyup paste input", function () {
+  // 검색창이 비어있지 않다면
+  if ($(this).val().length > 0) {
+    // 코인 리스트를 순회
+    for (const currency of coinListItems) {
+      // 모든 코인 리스트를 비활성화
+      currency.style.display = "none";
+    }
+  }
+  // 검색창이 비어있다면
+  else {
+    // 코인 리스트를 순회
+    for (const currency of coinListItems) {
+      // 모든 코인 리스트를 비활성화
+      currency.style.display = "list-item";
+    }
+  }
+
+  // 검색된 코인의 심볼 Idx를 저장하기 위한 배열 Init
+  let findedCurrencyIdxList = [];
+  // 검색창이 비어있지 않다면
+  if ($(this).val().length > 0) {
+    // 모든 코인 리스트를 순회
+    for (let symbolIdx = 0; symbolIdx < currencySymbol.length; symbolIdx++) {
+      // 순회하던 코인 심볼명에 검색창에 입력된 이름이 있을 경우 해당 심볼의 Idx를 findedCurrencyIdx 배열에 추가
+      if (currencySymbol[symbolIdx].indexOf($(this).val()) > -1) document.querySelector('.' + currencySymbol[symbolIdx]).style.display = "list-item";
+    }
+  }
+});
 
 // 3자리마다 콤마 찍는 함수 정의
 function comma(x) {
@@ -144,7 +177,7 @@ function getCoinData() {
                   }
                 }
 
-                // 암호 화폐 거래량 업데이트 파트
+                // 암호 화폐 등락률 업데이트 파트
                 // 선택된 심볼 암호화폐의 등락률을 나타내는 HTML 요소를 순회
                 for (const currencyRangePriceElement of document.querySelectorAll('.' + symbol + "-range-price")) {
                   // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 업데이트
@@ -164,6 +197,14 @@ function getCoinData() {
                     // 등락률 업데이트
                     currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
                   }
+                }
+
+                // 암호 화폐 거래량 업데이트 파트
+                // 선택된 심볼 암호화폐의 거래량을 나타내는 HTML 요소를 순회
+                for (const currencyAmountVolume of document.querySelectorAll('.' + symbol + "-amount-volume")) {
+                  // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 업데이트
+                  // 이전 거래량과 비교하여 거래량이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
+                  currencyAmountVolume.innerHTML = parseFloat(currencyData[symbol].volume).toFixed(2);
                 }
 
                 // 상단 코인 정보창 고가 갱신

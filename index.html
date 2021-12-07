@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" conpspt="IE=edge">
+    <meta name="viewport" conpspt="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="/asset/css/common.css">
@@ -42,7 +42,7 @@
             <div class="list-title">
                 <form action="" method="get" class="clear">
                     <span><i class="far fa-star"></i></span>
-                    <input type="search" name="q" placeholder="코인검색">
+                    <input id="currency-search" type="search" name="q" placeholder="코인검색">
                     <button type="button"><i class="fas fa-search"></i></button>
                 </form>
                 <ul>
@@ -63,7 +63,7 @@
                         <h1>등락률</h1>
                     </div>
                     <div class="list-transaction-amount">
-                        <h1>거래량<i class="fas fa-arrow-down"></i></h1>
+                        <h1>거래량</h1>
                     </div>
                 </li>
                 <li class="btc coin-list-item">
@@ -220,6 +220,174 @@
                         <span class="qtum-amount-volume">0</span>
                     </div>
                 </li>
+                <li class="dia coin-list-item">
+                    <div class="list-name">
+                        <span>DIA<p>디아</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="dia-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="dia-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="dia-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="aave coin-list-item">
+                    <div class="list-name">
+                        <span>AAVE<p>에이브</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="aave-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="aave-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="aave-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="mir coin-list-item">
+                    <div class="list-name">
+                        <span>MIR<p>미러 프로토콜</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="mir-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="mir-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="mir-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="uma coin-list-item">
+                    <div class="list-name">
+                        <span>UMA<p>우마</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="uma-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="uma-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="uma-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="avax coin-list-item">
+                    <div class="list-name">
+                        <span>AVAX<p>아발란체</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="avax-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="avax-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="avax-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="aave coin-list-item">
+                    <div class="list-name">
+                        <span>AAVE<p>에이브</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="aave-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="aave-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="aave-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="bal coin-list-item">
+                    <div class="list-name">
+                        <span>BAL<p>발란서</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="bal-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="bal-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="bal-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="uni coin-list-item">
+                    <div class="list-name">
+                        <span>UNI<p>유니스왑</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="uni-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="uni-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="uni-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="neo coin-list-item">
+                    <div class="list-name">
+                        <span>NEO<p>네오</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="neo-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="neo-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="neo-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="stake coin-list-item">
+                    <div class="list-name">
+                        <span>STAKE<p>스테이크</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="stake-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="stake-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="stake-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="dot coin-list-item">
+                    <div class="list-name">
+                        <span>DOT<p>폴카닷</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="dot-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="dot-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="dot-amount-volume">0</span>
+                    </div>
+                </li>
+                <li class="ftt coin-list-item">
+                    <div class="list-name">
+                        <span>FTT<p>에프티엑스 토큰</p></span>
+                    </div>
+                    <div class="list-price">
+                        <span class="ftt-price">0</span>
+                    </div>
+                    <div class="list-fluctuation-rate">
+                        <span class="ftt-range-price">0</span>
+                    </div>
+                    <div class="list-transaction-amount">
+                        <span class="ftt-amount-volume">0</span>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -232,7 +400,7 @@
     </div>
     <div class="news-box">
         <div class="news-time">14:08</div>
-        <div class="news-contents">
+        <div class="news-conpspts">
             <h3 class="news-title">세계적 AI로봇 소피아, iNFT 발행</h3>
             <div class="news-text">
                 <span>세계적으로 유명한 휴머노이드 인공지능 로봇 소피아가 메타버스 프로젝트의 일환으로 iNFT를 출시한다. iNFT란 스마트컨트랙에 프로그래밍 기능을 추가, AI 기능이 내장된 NFT를 말한다. iNFT의 경우 게임화된 환경에서 자율적으로 사람들과 실시간으로 상호작용할 수 있다는 설명이다. 소피아의 라이선스 보유사인 빙AI(being AI)는 오는 16일 알레사 AI와 협력해 바이낸스 NFT 마켓에서 100개의 iNFT(지능형 대체 불가 토큰)를 출시할 예정이다. 경매는 21일까지 진행되며 매일 20개의 iNFT가 판매된다. 컬렉션의 디지털 아트는 마블 등에서 아이언맨, 스파이더맨 등 작품에 참여한 만화가 팻 리가 담당하게 된다. 소피아는 지난 2016년 홍콩 기반 로봇 개발사 한센 로보틱스가 개발했다.</span>
@@ -241,7 +409,7 @@
     </div>
     <div class="news-box">
         <div class="news-time">13:24</div>
-        <div class="news-contents">
+        <div class="news-conpspts">
             <h3 class="news-title">비틀즈 멤버 NFT 컬렉션, 경매 진행 중</h3>
             <div class="news-text">
                 <span>크립토브리핑에 따르면 미국 라디오 및 사운드 아카이브 단체 보이스 오브 클래식 록(VOCR)이 비틀즈 NFT 컬렉션을 발행했다. 비틀즈 관련 NFT가 발행된 건 이번이 최초 사례다. 비틀즈 음반 판매사인 애플사(Apple Corps)는 이번 NFT에 관여하지 않았다. NFT는 총 4종으로 구성되며 각 멤버 이미지와 인터뷰 파일(WAV 형식)이 포함된다. 이더리움에서 발행되며 입찰도 ETH으로만 진행된다. 시초가는 1.25 ETH다. 경매는 VOCR 공식 웹사이트를 통해 10일(현지시간)까지 진행된다.</span>
@@ -253,7 +421,7 @@
     </div>
     <div class="news-box">
         <div class="news-time">13:03</div>
-        <div class="news-contents">
+        <div class="news-conpspts">
             <h3 class="news-title">스퀘어 암호화폐 사업부, 라이트닝 네트워크 개발 키트 출시</h3>
             <div class="news-text">
                 <span>트위터 창업자 잭 도시가 이끄는 스퀘어의 암호화폐 전담 사업부 스파이럴(Spiral·전 스퀘어 크립토)이 라이트닝 네트워크 개발 키트인 LDK(Lightning dev kit)를 출시한다고 비트코인 매거진이 전했다. LDK는 개발자가 라이트닝 네트워크 노드를 보다 쉽게 구축할 수 있도록 하는 개발 툴이다. 이를 통해 비트코인 결제 기능을 모든 애플리케이션에 간편 통합할 수 있다는 설명이다.</span>
@@ -262,7 +430,7 @@
     </div>
     <div class="news-box">
         <div class="news-time">12:50</div>
-        <div class="news-contents">
+        <div class="news-conpspts">
             <h3 class="news-title">여론조사 응답자 46% "가상자산 과세유예, 선거 의식한 잘못된 결정"</h3>
             <div class="news-text">
                 <span>아시아경제가 최근 진행한 여론조사에서 여야가 초당적으로 합의한 가상자산 과세유예 방침에 대해 국민 다수가 ‘선거를 의식한 잘못된 결정’이라는 평가를 하는 것으로 나타났다. 특히 과세 도입 자체를 반대할 것이라고 예측됐던 20대와 30대 젊은층에서도 긍정 보다 부정적 평가가 더 많았다. 조사에 따르면 비트코인 등 가상자산에 대한 과세를 1년 동안 유예하기로 한 국회의 결정에 대해 응답자의 46.6%는 ‘선거를 의식한 잘못된 결정’이라고 평가했다. ‘관련 산업 활성화와 과세시스템 준비를 위해 잘된 결정’이라는 답변은 34.2%, ‘잘 모르겠다’는 답변은 19.1% 순으로 집계됐다. 과세 여부 보다는 기존의 원칙과 방침을 번복한 것에서 비롯된</span>
@@ -271,7 +439,7 @@
     </div>
     <div class="news-box">
         <div class="news-time">12:27</div>
-        <div class="news-contents">
+        <div class="news-conpspts">
             <h3 class="news-title">외신 "BSC 게임 토큰 급락.. 블록체인 게임 안정성 의문"</h3>
             <div class="news-text">
                 <span>우블록체인이 트위터를 통해 "유명 블록체인 게임 'BNB 히어로' 토큰 가격이 80% 급락했다. 최근 BSC 기반 블록체인 게임들의 토큰 가격이 가파르게 하락하며, 블록체인 게임의 안정성에 대한 의문이 생기고 있다"고 전했다.</span>
@@ -280,7 +448,7 @@
     </div>
     <div class="news-box">
         <div class="news-time">12:14</div>
-        <div class="news-contents">
+        <div class="news-conpspts">
             <h3 class="news-title">FTX, 부동산 거래에 암호화폐 결제 도입</h3>
             <div class="news-text">
                 <span>암호화폐 거래소 FTX가 마이애미 소재 부동산 업체 인하우스 커머셜과 파트너십을 체결, 부동산 거래에 암호화폐 결제를 도입할 예정이라고 코인포스트가 전했다. 이용자가 암호화폐로 부동산을 구매하면 FTX가 해당 암호화폐를 미 달러로 전환해 판매자에게 송금한다. 가격 변동을 최소화하기 위해 송금은 매매 직후 바로 진행된다.</span>
@@ -289,7 +457,7 @@
     </div>
     <div class="news-box">
         <div class="news-time">12:03</div>
-        <div class="news-contents">
+        <div class="news-conpspts">
             <h3 class="news-title">블록스택 CEO "비트코인 맥시멀리즘 틀렸다.. 사용사례 구축해야"</h3>
             <div class="news-text">
                 <span>블록체인 네트워크 개발사 블록스택(Blockstack)의 설립자 무니브 알리(Muneeb Ali)가 자신의 트위터를 통해 "비트코인 맥시멀리스트(다른 암호화폐를 경멸하는 비트코인 보유 극대화 주의자)들은 이더리움을 스캠이라고 부른다. 그러나 비트코인은 대안이 될 DEX, 유동성 프로토콜, 스테이블코인을 내놓지 못하고 있다"고 말했다. 그는 이어 "비트코인 실험에 매료된 이들이 새로운 실험을 비웃는 동안 비트코인 시장 점유율은 떨어지고 개발자와 사용사례들은 이더리움, 솔라나 등 다른 생태계로 이동하고 있다"면서 "비트코인 맥시멀리즘은 효과가 없으며, 비트코인에 더 나은 상품을 만들어야 한다. 1위 프로젝트가 현실에 안주해서는 안된다"고 덧붙였다.</span>
