@@ -157,31 +157,6 @@ function getCoinData() {
   xhr.send();
 }
 
-// 코인 뉴스 데이터를 가져오는 함수 (CryptoHub API)
-function getCoinNewsData() {
-  const xhr = new XMLHttpRequest();
-  const method = "POST";
-
-  // 링크에 숨겨진 data-deptno값을 백엔드에 전송함
-  const url = "https://www.cryptohub.or.kr/api/v1/news";
-
-  xhr.onreadystatechange = e => {
-    const { target } = e;
-    if (target.readyState === XMLHttpRequest.DONE) {
-        if (target.status === 200) {
-          let currencyNewsData = JSON.parse(target.response);
-          console.log(currencyNewsData);
-        }
-    }
-  };
-  xhr.open(method, url);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
-  xhr.send("token=$2y$10$LETJVJWyid8HnOFQBU3ZjOlSCiOA0997HBOsDZQEpKfxydJc.myJG&s_date=2021-01-01&e_date=2021-06-01&keyword=btc");
-}
-
-// 코인 뉴스 로드
-getCoinNewsData();
-
 // 페이지 첫 로드시 BTC로 차트 로드
 drawChart("BTC");
 // getData 함수 1초 주기로 반복 실행
