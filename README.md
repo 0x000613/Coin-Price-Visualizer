@@ -24,7 +24,8 @@
 
 - https://ezen-frontend-team-semi-portfolio.vercel.app/
 
-### 
+### Program Logic
+추가 예정
 
 ### 코드 작성 가이드라인
 
