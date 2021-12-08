@@ -74,7 +74,7 @@ li {
   box-shadow: 2px 2px 5px #eee;
   position: relative;
   left: 1%;
-  top: 670px;
+  top: 730px;
   color: #2d2d2d;
   box-sizing: border-box;
 
@@ -152,7 +152,7 @@ li {
     width: 70%;
     height: 450px;
     position: absolute;
-    top: 200px;
+    top: 230px;
     left: 1%;
     box-shadow: 2px 2px 5px #eee;
     color: #2d2d2d;
@@ -222,6 +222,7 @@ li {
     border: 1px solid #eee;
     border-radius: 5px;
     width: 25%;
+    height: 93.5vh;
     position: fixed;
     top: 30px;
     right: 1%;
@@ -689,7 +690,7 @@ li {
     width: 70%;
     height: 450px;
     position: absolute;
-    top: 200px;
+    top: 230px;
     left: 1%;
     box-shadow: 2px 2px 5px #eee;
     color: #2d2d2d;
