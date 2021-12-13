@@ -25,34 +25,34 @@ for (const btn of coinListItems) {
 
 // 검색창 검색 이벤트 처리 함수
 // jQuery를 이용하여 input 탭의 값이 변경될때마다 실행되도록함
-$("#currency-search").on("propertychange change keyup paste input", function () {
-  // 검색창이 비어있지 않다면
-  if ($(this).val().length > 0) {
-    // 코인 리스트를 순회
-    for (const currency of coinListItems) {
-      // 모든 코인 리스트를 비활성화
-      currency.style.display = "none";
+$("#currency-search").on("propertychange change keyup paste input", function() {
+    // 검색창이 비어있지 않다면
+    if ($(this).val().length > 0) {
+        // 코인 리스트를 순회
+        for (const currency of coinListItems) {
+            // 모든 코인 리스트를 비활성화
+            currency.style.display = "none";
+        }
     }
-  }
-  // 검색창이 비어있다면
-  else {
-    // 코인 리스트를 순회
-    for (const currency of coinListItems) {
-      // 모든 코인 리스트를 비활성화
-      currency.style.display = "list-item";
+    // 검색창이 비어있다면
+    else {
+        // 코인 리스트를 순회
+        for (const currency of coinListItems) {
+            // 모든 코인 리스트를 비활성화
+            currency.style.display = "list-item";
+        }
     }
-  }
 
-  // 검색된 코인의 심볼 Idx를 저장하기 위한 배열 Init
-  let findedCurrencyIdxList = [];
-  // 검색창이 비어있지 않다면
-  if ($(this).val().length > 0) {
-    // 모든 코인 리스트를 순회
-    for (let symbolIdx = 0; symbolIdx < currencySymbol.length; symbolIdx++) {
-      // 순회하던 코인 심볼명에 검색창에 입력된 이름이 있을 경우 해당 심볼의 Idx를 findedCurrencyIdx 배열에 추가
-      if (currencySymbol[symbolIdx].indexOf($(this).val()) > -1) document.querySelector('.' + currencySymbol[symbolIdx]).style.display = "list-item";
+    // 검색된 코인의 심볼 Idx를 저장하기 위한 배열 Init
+    let findedCurrencyIdxList = [];
+    // 검색창이 비어있지 않다면
+    if ($(this).val().length > 0) {
+        // 모든 코인 리스트를 순회
+        for (let symbolIdx = 0; symbolIdx < currencySymbol.length; symbolIdx++) {
+            // 순회하던 코인 심볼명에 검색창에 입력된 이름이 있을 경우 해당 심볼의 Idx를 findedCurrencyIdx 배열에 추가
+            if (currencySymbol[symbolIdx].indexOf($(this).val()) > -1) document.querySelector('.' + currencySymbol[symbolIdx]).style.display = "list-item";
+        }
     }
-  }
 });
 
 // 3자리마다 콤마 찍는 함수 정의
@@ -113,115 +113,109 @@ function getCoinData() {
     const method = "GET";
 
     // 링크에 숨겨진 data-deptno값을 백엔드에 전송함
-    const url = "https://api.coinone.co.kr/ticker?currency=all";
+  const url = "https://api.coinone.co.kr/ticker?currency=all";
+  
+  axios
+    .get(url)
 
-    xhr.onreadystatechange = e => {
-        const {
-            target
-      } = e;
+    .then(({ data }) => {
+      // Coinone API로부터 리턴받은 데이터
+      currencyData = data;
 
-        
-
-        if (target.readyState === XMLHttpRequest.DONE) {
-            if (target.status === 200) {
-              // Coinone API로부터 리턴받은 데이터
-              currencyData = JSON.parse(target.response);
-
-              // 심볼 하나씩 순회
-              for (const symbol of currencySymbol) {
-                // 암호 화폐 가격 업데이트 파트
-                // 선택된 심볼 암호화폐의 가격을 나타내는 HTML 요소를 순회
-                for (const currencyPriceElement of document.querySelectorAll('.' + symbol + "-price")) {
-                  // 해당 요소의 innerHTML을 API로 가져온 암호화폐 가격으로 업데이트
-                  // 이전 가격과 비교하여 가격이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
-                  if (parseFloat(currencyPriceElement.innerHTML.replaceAll(',', '')) < currencyData[symbol].last) {
-                    // down 클래스 제거, up 클래스 부여
-                    currencyPriceElement.classList.add("highlight");
-                    setTimeout(() => currencyPriceElement.classList.remove("highlight"), 500);
-                    currencyPriceElement.classList.remove("down");
-                    currencyPriceElement.classList.add("up");
-                    // 가격 업데이트
-                    currencyPriceElement.innerHTML = comma(currencyData[symbol].last)
-                  }
-                  // 이전 가격과 비교하여 가격이 내렸으면
-                  else if (parseFloat(currencyPriceElement.innerHTML.replaceAll(',', '')) > currencyData[symbol].last) {
-                    // up 클래스 제거, down 클래스 부여
-                    currencyPriceElement.classList.add("highlight");
-                    setTimeout(() => currencyPriceElement.classList.remove("highlight"), 500);
-                    currencyPriceElement.classList.remove("up");
-                    currencyPriceElement.classList.add("down");
-                    // 가격 업데이트
-                    currencyPriceElement.innerHTML = comma(currencyData[symbol].last)
-                  }
-                }
-
-                // 암호 화폐 등락률 업데이트 파트
-                // 선택된 심볼 암호화폐의 등락률을 나타내는 HTML 요소를 순회
-                for (const currencyRangePriceElement of document.querySelectorAll('.' + symbol + "-range-price")) {
-                  // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 업데이트
-                  // 이전 등락률과 비교하여 등락률이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
-                  if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) < currencyData[symbol].yesterday_last) {
-                    // down 클래스 제거, up 클래스 부여
-                    currencyRangePriceElement.classList.remove("down");
-                    currencyRangePriceElement.classList.add("up");
-                    // 등락률 업데이트
-                    currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
-                  }
-                  // 이전 등락률과 비교하여 등락률이 내렸으면
-                  else if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) > currencyData[symbol].yesterday_last) {
-                    // up 클래스 제거, down 클래스 부여
-                    currencyRangePriceElement.classList.remove("up");
-                    currencyRangePriceElement.classList.add("down");
-                    // 등락률 업데이트
-                    currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
-                  }
-                }
-
-                // 암호 화폐 등락률 업데이트 파트
-                // 선택된 심볼 암호화폐의 등락률을 나타내는 HTML 요소를 순회
-                for (const currencyRangePriceElement of document.querySelectorAll('.' + symbol + "-range-price")) {
-                  // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 업데이트
-                  // 이전 등락률과 비교하여 등락률이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
-                  if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) < currencyData[symbol].yesterday_last) {
-                    // down 클래스 제거, up 클래스 부여
-                    currencyRangePriceElement.classList.remove("down");
-                    currencyRangePriceElement.classList.add("up");
-                    // 등락률 업데이트
-                    currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
-                  }
-                  // 이전 등락률과 비교하여 등락률이 내렸으면
-                  else if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) > currencyData[symbol].yesterday_last) {
-                    // up 클래스 제거, down 클래스 부여
-                    currencyRangePriceElement.classList.remove("up");
-                    currencyRangePriceElement.classList.add("down");
-                    // 등락률 업데이트
-                    currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
-                  }
-                }
-
-                // 암호 화폐 거래량 업데이트 파트
-                // 선택된 심볼 암호화폐의 거래량을 나타내는 HTML 요소를 순회
-                for (const currencyAmountVolume of document.querySelectorAll('.' + symbol + "-amount-volume")) {
-                  // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 업데이트
-                  // 이전 거래량과 비교하여 거래량이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
-                  currencyAmountVolume.innerHTML = parseFloat(currencyData[symbol].volume).toFixed(2);
-                }
-
-                // 상단 코인 정보창 고가 갱신
-                document.querySelector(".high-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].high));
-                // 상단 코인 정보창 저가 갱신
-                document.querySelector(".low-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].low));
-                // 상단 코인 정보창 전일가 갱신
-                document.querySelector(".previous-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].yesterday_last));
-                // 상단 코인 정보창 거래량 갱신
-                document.querySelector(".volume").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].volume).toFixed(3)) + ' ' + currentViewCurrency.toUpperCase();
+      // 심볼 하나씩 순회
+      for (const symbol of currencySymbol) {
+          // 암호 화폐 가격 업데이트 파트
+          // 선택된 심볼 암호화폐의 가격을 나타내는 HTML 요소를 순회
+          for (const currencyPriceElement of document.querySelectorAll('.' + symbol + "-price")) {
+              // 해당 요소의 innerHTML을 API로 가져온 암호화폐 가격으로 업데이트
+              // 이전 가격과 비교하여 가격이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
+              if (parseFloat(currencyPriceElement.innerHTML.replaceAll(',', '')) < currencyData[symbol].last) {
+                  // down 클래스 제거, up 클래스 부여
+                  currencyPriceElement.classList.add("highlight");
+                  setTimeout(() => currencyPriceElement.classList.remove("highlight"), 500);
+                  currencyPriceElement.classList.remove("down");
+                  currencyPriceElement.classList.add("up");
+                  // 가격 업데이트
+                  currencyPriceElement.innerHTML = comma(currencyData[symbol].last)
               }
-            }
-        }
-    };
+              // 이전 가격과 비교하여 가격이 내렸으면
+              else if (parseFloat(currencyPriceElement.innerHTML.replaceAll(',', '')) > currencyData[symbol].last) {
+                  // up 클래스 제거, down 클래스 부여
+                  currencyPriceElement.classList.add("highlight");
+                  setTimeout(() => currencyPriceElement.classList.remove("highlight"), 500);
+                  currencyPriceElement.classList.remove("up");
+                  currencyPriceElement.classList.add("down");
+                  // 가격 업데이트
+                  currencyPriceElement.innerHTML = comma(currencyData[symbol].last)
+              }
+          }
 
-    xhr.open(method, url);
-    xhr.send();
+          // 암호 화폐 등락률 업데이트 파트
+          // 선택된 심볼 암호화폐의 등락률을 나타내는 HTML 요소를 순회
+          for (const currencyRangePriceElement of document.querySelectorAll('.' + symbol + "-range-price")) {
+              // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 업데이트
+              // 이전 등락률과 비교하여 등락률이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
+              if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) < currencyData[symbol].yesterday_last) {
+                  // down 클래스 제거, up 클래스 부여
+                  currencyRangePriceElement.classList.remove("down");
+                  currencyRangePriceElement.classList.add("up");
+                  // 등락률 업데이트
+                  currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
+              }
+              // 이전 등락률과 비교하여 등락률이 내렸으면
+              else if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) > currencyData[symbol].yesterday_last) {
+                  // up 클래스 제거, down 클래스 부여
+                  currencyRangePriceElement.classList.remove("up");
+                  currencyRangePriceElement.classList.add("down");
+                  // 등락률 업데이트
+                  currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
+              }
+          }
+
+          // 암호 화폐 등락률 업데이트 파트
+          // 선택된 심볼 암호화폐의 등락률을 나타내는 HTML 요소를 순회
+          for (const currencyRangePriceElement of document.querySelectorAll('.' + symbol + "-range-price")) {
+              // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 업데이트
+              // 이전 등락률과 비교하여 등락률이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
+              if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) < currencyData[symbol].yesterday_last) {
+                  // down 클래스 제거, up 클래스 부여
+                  currencyRangePriceElement.classList.remove("down");
+                  currencyRangePriceElement.classList.add("up");
+                  // 등락률 업데이트
+                  currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
+              }
+              // 이전 등락률과 비교하여 등락률이 내렸으면
+              else if (parseFloat(currencyRangePriceElement.innerHTML.replaceAll(',', '')) > currencyData[symbol].yesterday_last) {
+                  // up 클래스 제거, down 클래스 부여
+                  currencyRangePriceElement.classList.remove("up");
+                  currencyRangePriceElement.classList.add("down");
+                  // 등락률 업데이트
+                  currencyRangePriceElement.innerHTML = comma(((currencyData[symbol].last - currencyData[symbol].yesterday_last) / currencyData[symbol].yesterday_last * 100).toFixed(2))
+              }
+          }
+
+          // 암호 화폐 거래량 업데이트 파트
+          // 선택된 심볼 암호화폐의 거래량을 나타내는 HTML 요소를 순회
+          for (const currencyAmountVolume of document.querySelectorAll('.' + symbol + "-amount-volume")) {
+              // 해당 요소의 innerHTML을 API로 가져온 암호화폐 데이터를 가반으로 계산하여 으로 업데이트
+              // 이전 거래량과 비교하여 거래량이 올랐으면 (replaceAll을 이용해 콤마를 제거한 순수 값을 가져와서 대조함)
+              currencyAmountVolume.innerHTML = parseFloat(currencyData[symbol].volume).toFixed(2);
+          }
+
+          // 상단 코인 정보창 고가 갱신
+          document.querySelector(".high-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].high));
+          // 상단 코인 정보창 저가 갱신
+          document.querySelector(".low-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].low));
+          // 상단 코인 정보창 전일가 갱신
+          document.querySelector(".previous-price").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].yesterday_last));
+          // 상단 코인 정보창 거래량 갱신
+          document.querySelector(".volume").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].volume).toFixed(3)) + ' ' + currentViewCurrency.toUpperCase();
+      }
+    })
+  
+    .catch((error) => {
+      cconsole.error(error);
+    })
 }
 
 // 페이지 첫 로드시 BTC로 차트 로드
