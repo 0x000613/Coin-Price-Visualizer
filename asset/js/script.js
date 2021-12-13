@@ -1,3 +1,7 @@
+// ---
+// Axios로 작성된 Script
+// ---
+
 // 현재 정보창이 활성화된 코인 심볼 Init
 var currentViewCurrency = "btc";
 
@@ -212,7 +216,8 @@ function getCoinData() {
           document.querySelector(".volume").innerHTML = comma(parseFloat(currencyData[currentViewCurrency].volume).toFixed(3)) + ' ' + currentViewCurrency.toUpperCase();
       }
     })
-  
+    
+    // 에러 발생시
     .catch((error) => {
       cconsole.error(error);
     })

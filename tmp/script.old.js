@@ -1,3 +1,7 @@
+// ---
+// XMLHttpRequest로 작성된 Script
+// ---
+
 // 현재 정보창이 활성화된 코인 심볼 Init
 var currentViewCurrency = "btc";
 
