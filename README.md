@@ -1,6 +1,8 @@
 # EZEN-FrontEnd-TeamSemiPortfolio
 
-코인원 API를 사용한 실시간 코인 정보 시각화 웹 프로그램 개발
+코인원 API를 사용한 실시간 코인 정보 시각화 웹 프로그램
+
+![Coin](https://user-images.githubusercontent.com/77450463/159848508-7ba253dc-017a-406b-90b2-14be9bf892ea.png)
 
 ### 작업자 및 파트 분담
 
